@@ -2,7 +2,7 @@
 <template>
   <div class="min-h-screen bg-gray-100">
     <nav
-      class="flex fixed w-full items-center justify-between px-6 h-16 bg-white text-gray-700 border-b border-gray-200 z-10"
+      class="flex w-full items-center justify-between px-6 h-16 bg-white text-gray-700 border-b border-gray-200 z-10"
     >
       <div class="flex items-center">
         <button class="mr-2" aria-label="Open Menu" @click="drawer">
@@ -24,7 +24,9 @@
         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
           <jet-nav-link
             :href="route('dashboard')"
-          >Dashboard</jet-nav-link>
+          >
+          Dashboard
+          </jet-nav-link>
         </div>
       </div>
       <div class="flex items-center">
@@ -189,9 +191,10 @@
         </span>
         
         <inertia-link
-        v-for="(sidebar,i) in sidebars" :key="i"
+            v-for="(sidebar,i) in sidebars" :key="i"
             :href="sidebar.path"
-            class="flex items-center p-4 hover:bg-indigo-500 hover:text-white"
+            @click="isOpen = false"
+            class="flex items-center p-4 hover:bg-teal-400 hover:text-white"
           >
             <span class="mr-2">
                 <svg
@@ -215,7 +218,7 @@
 
     <!-- Page Heading -->
     <header class="bg-white shadow">
-      <div class="max-w-7xl mx-auto pb-6 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <slot name="header"></slot>
       </div>
     </header>
